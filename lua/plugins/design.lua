@@ -24,6 +24,17 @@ return {
                     },
                     custom_highlights = function()
                         return {
+                            LineNr = {
+                                fg = colors.overlay1,
+                                bg = "NONE",
+                            },
+
+                            CursorLineNr = {
+                                fg = colors.text,
+                                bold = true,
+                                bg = "NONE",
+                            },
+
                             Comment = { fg = "#6b7280", italic = true },
                             Function = { fg = "#60a5fa" },
                             Keyword = { fg = "#facc15", bold = true },
@@ -83,5 +94,15 @@ return {
         opts = {
             colorscheme = "catppuccin",
         },
+    },
+
+    -- 4. Força a barrinha (Lualine) a usar o tema colorido e sólido do Catppuccin desde o início
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = {"catppuccin/nvim"},
+        opts = function(_, opts)
+            opts.options.theme = "catppuccin"
+            return opts
+        end,
     },
 }
