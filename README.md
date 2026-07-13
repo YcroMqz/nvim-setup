@@ -1,14 +1,24 @@
 # 💤 Meu Setup do Neovim (LazyVim)
 
-Este repositório contém a minha configuração pessoal do Neovim, construída sobre a base do **LazyVim**, mas totalmente modificada para entregar uma experiência agradável e otimizada para **Programação Competitiva (C++)** e desenvolvimento geral.
+Este repositório contém a minha configuração pessoal do Neovim, construída sobre a base do **LazyVim**, mas totalmente modificada para entregar uma experiência agradável.
+
+## 📦 Instalação
+
+```bash
+mv ~/.config/nvim ~/.config/nvim.bak # backup da sua config atual, se tiver
+git clone https://github.com/YcroMqz/nvim-setup.git ~/.config/nvim
+nvim
+```
 
 ## Recursos adicionados
 
 - **Compilação e execução (`<F5>`)**: Atalho inteligente no `keymaps.lua` que salva, compila com flags otimizadas (`-O2 -Wall -DLOCAL`) e roda o código em uma split vertical automaticamente (suporta C++, C, Python e Go).
+- **Programação Competitiva (CompetiTest)**: Baixa problemas e roda/edita casos de teste direto no editor (`<leader>rr` roda, `<leader>ra` adiciona teste, `<leader>re` edita, `<leader>rc` baixa problema).
 - **Estética Transparente**: Configuração `design.lua` que força transparência total mantendo as pílulas sólidas e coloridas do **Catppuccin Mocha**.
 - **Minimap**: Visualizador de código lateral (`mini.map`) usando resolução de caracteres Braille para simular a textura real do texto.
 - **Breadcrumbs (`barbecue.nvim`)**: Barra superior mostrando o escopo exato (classe/função) onde o cursor está.
 - **Captura de Código (silicon.nvim)**: Gera uma captura do trecho de código selecionado por meio do atalho `<leader>sc`. (semelhante a extensão Snapcode do VsCode).
+- **Color Picker e Colorizer**: `<leader>cp` abre um seletor de cores (ccc.nvim), e códigos hex/rgb/hsl no código já aparecem destacados com a cor real (nvim-colorizer).
 - **Discord Rich Presence**: Integração via `neocord` para exibir o status do seu código em tempo real no Discord.
 - **Renderizador de Imagens**: Suporte para abrir e visualizar imagens reais diretamente dentro do editor.
 
@@ -39,7 +49,7 @@ mkdir -p ~/.config/matugen/templates
 cp templates/nvim-colors.lua.template ~/.config/matugen/templates/
 ```
 
-Registre o seguinte template no `~/.config/matugen/config.toml`:
+Registre o template no `~/.config/matugen/config.toml` — só copiar o arquivo pra pasta **não é suficiente**, o Matugen precisa dele declarado aqui:
 
 ```toml
 [templates.nvim]
