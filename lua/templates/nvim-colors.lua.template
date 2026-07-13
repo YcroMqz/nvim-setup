@@ -1,0 +1,39 @@
+return {
+    -- Background
+    crust     = "{{colors.crust.hex}}",
+    mantle    = "{{colors.mantle.hex}}",
+    base      = "{{colors.base.hex}}",
+
+    -- UI
+    surface0  = "{{colors.surface0.hex}}",
+    surface1  = "{{colors.surface1.hex}}",
+    surface2  = "{{colors.surface2.hex}}",
+    overlay0  = "{{colors.overlay0.hex}}",
+    overlay1  = "{{colors.overlay1.hex}}",
+    overlay2  = "{{colors.overlay2.hex}}",
+
+    -- Text
+    subtext0  = "{{colors.subtext0.hex}}",
+    subtext1  = "{{colors.subtext1.hex}}",
+    text      = "{{colors.text.hex}}",
+
+    -- Syntax
+    rosewater = "{{colors.rosewater.hex}}",
+    
+    flamingo  = "{{colors.flamingo.hex}}",
+    red       = "{{colors.red.hex}}",
+    maroon    = "{{colors.maroon.hex}}",
+
+    peach     = "{{colors.peach.hex}}",
+    yellow    = "{{colors.yellow.hex}}",
+
+    green     = "{{colors.green.hex}}",
+    teal      = "{{colors.teal.hex}}",
+
+    sky       = "{{colors.sky.hex}}",
+    sapphire  = "{{colors.sapphire.hex}}",
+    blue      = "{{colors.blue.hex}}",
+
+    mauve     = "{{colors.mauve.hex}}",
+    lavender  = "{{colors.lavender.hex}}",
+}

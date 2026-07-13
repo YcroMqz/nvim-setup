@@ -4,7 +4,7 @@ return {
     version = "*",
     dependencies = {
         "SmiteshP/nvim-navic",
-        "echasnovski/mini.icons",
+        "nvim-mini/mini.icons",
     },
     opts = {
         theme = "catppuccin",

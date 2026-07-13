@@ -30,7 +30,7 @@ return {
         })
 
         vim.api.nvim_set_hl(0, "MiniMapNormal", { bg = "NONE", ctermbg = "NONE" })
-        vim.api.nvim_set_hl(0, "MiniMapSymbolView", { fg = "#cba6f7", bg = "NONE" }) -- Cor da trilha (Mauve/Roxo)
+        vim.api.nvim_set_hl(0, "MiniMapSymbolView", { fg = "#ffffff", bg = "NONE" }) -- Cor da trilha (Mauve/Roxo)
         vim.api.nvim_set_hl(0, "MiniMapSymbolLine", { fg = "#89b4fa", bg = "NONE" }) -- Cor do ponteiro atual (Blue/Azul)
     end,
 }

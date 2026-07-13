@@ -1,41 +1,41 @@
 return {
   -- Background
-  crust     = "#0b0f12",
-  mantle    = "#181c20",
-  base      = "#101417",
+  crust     = "#0a0f11",
+  mantle    = "#171c1f",
+  base      = "#0f1416",
 
   -- UI
-  surface0  = "#1c2024",
-  surface1  = "#272a2e",
-  surface2  = "#313539",
-  overlay0  = "#42474d",
-  overlay1  = "#8c9198",
-  overlay2  = "#c1c7ce",
+  surface0  = "#1b2023",
+  surface1  = "#252b2d",
+  surface2  = "#303638",
+  overlay0  = "#40484c",
+  overlay1  = "#8a9296",
+  overlay2  = "#bfc8cc",
 
   -- Text
-  subtext0  = "#c1c7ce",
-  subtext1  = "#e0e3e8",
-  text      = "#e0e3e8",
+  subtext0  = "#bfc8cc",
+  subtext1  = "#dee3e6",
+  text      = "#dee3e6",
 
   -- Syntax
 
-  rosewater = "#98ccf9",
+  rosewater = "#88d1ec",
 
   flamingo  = "#ffb4ab",
   red       = "#ffb4ab",
   maroon    = "#ffb4ab",
 
-  peach     = "#b8c8d9",
-  yellow    = "#b8c8d9",
+  peach     = "#b3cad4",
+  yellow    = "#b3cad4",
 
-  green     = "#d0bfe7",
+  green     = "#c3c3eb",
 
-  teal      = "#b8c8d9",
+  teal      = "#b3cad4",
 
-  sky       = "#98ccf9",
-  sapphire  = "#98ccf9",
-  blue      = "#98ccf9",
+  sky       = "#88d1ec",
+  sapphire  = "#88d1ec",
+  blue      = "#88d1ec",
 
-  mauve     = "#d0bfe7",
-  lavender  = "#d0bfe7",
+  mauve     = "#c3c3eb",
+  lavender  = "#c3c3eb",
 }

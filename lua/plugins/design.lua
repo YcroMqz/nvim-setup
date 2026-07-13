@@ -7,70 +7,54 @@ return {
         config = function()
             local function load_colors()
                 local path = vim.fn.stdpath("config") .. "/matugen_colors.lua"
-                if vim.fn.filereadable(path) == 1 then
-                    return dofile(path)
+                -- Tenta ler o arquivo. Se falhar, retorna nil silenciosamente
+                local success, colors = pcall(dofile, path)
+                if success and type(colors) == "table" then
+                    return colors
                 end
-                return {}
+                return nil
             end
 
             local function apply_colors()
                 local colors = load_colors()
-                require("catppuccin").setup({
+
+                -- Configuração base
+                local setup_opts = {
                     flavour = "mocha",
                     transparent_background = true,
-                    color_overrides = {
-                        all = colors,
-                        mocha = colors,
-                    },
-                    custom_highlights = function()
-                        return {
-                            LineNr = {
-                                fg = colors.overlay1,
-                                bg = "NONE",
-                            },
-
-                            CursorLineNr = {
-                                fg = colors.text,
-                                bold = true,
-                                bg = "NONE",
-                            },
-
-                            Comment = { fg = "#6b7280", italic = true },
-                            Function = { fg = "#60a5fa" },
-                            Keyword = { fg = "#facc15", bold = true },
-                            String = { fg = "#4ade80" },
-                            Type = { fg = "#c084fc" },
-                        }
-                    end,
                     compile = { enabled = false },
-                })
+                }
+
+                -- Só injeta overrides se o Matugen tiver gerado o arquivo
+                if colors then
+                    setup_opts.color_overrides = { all = colors, mocha = colors }
+                end
+
+                -- Definição de highlights (mantém o seu estilo)
+                setup_opts.custom_highlights = function()
+                    return {
+                        LineNr = { fg = colors and colors.overlay1 or "#9399b2", bg = "NONE" },
+                        CursorLineNr = { fg = colors and colors.text or "#cdd6f4", bold = true, bg = "NONE" },
+                        Comment = { fg = "#6b7280", italic = true },
+                        Function = { fg = "#60a5fa" },
+                        Keyword = { fg = "#facc15", bold = true },
+                        String = { fg = "#4ade80" },
+                        Type = { fg = "#c084fc" },
+                    }
+                end
+
+                require("catppuccin").setup(setup_opts)
                 vim.cmd("colorscheme catppuccin")
             end
 
             apply_colors()
 
-            -- Auto-reload instantâneo se você atualizar as cores do sistema
+            -- Auto-reload se o arquivo de cores mudar
             vim.api.nvim_create_autocmd("BufWritePost", {
                 pattern = "matugen_colors.lua",
                 callback = function()
                     package.loaded["catppuccin"] = nil
                     apply_colors()
-                end,
-            })
-
-            -- Força fundo transparente em áreas teimosas do Neovim
-            vim.api.nvim_create_autocmd("ColorScheme", {
-                pattern = "*",
-                callback = function()
-                    local highlights = {
-                        "Normal", "LineNr", "FoldColumn", "SignColumn", "VertSplit",
-                        "WinSeparator", "NeoTreeNormal", "NeoTreeNormalNC",
-                        "NeoTreeWinSeparator", "TelescopeNormal", "TelescopeBorder",
-                        "WhichKeyFloat",
-                    }
-                    for _, group in ipairs(highlights) do
-                        vim.api.nvim_set_hl(0, group, { bg = "NONE", ctermbg = "NONE" })
-                    end
                 end,
             })
         end,
@@ -96,7 +80,7 @@ return {
         },
     },
 
-    -- 4. Força a barrinha (Lualine) a usar o tema colorido e sólido do Catppuccin desde o início
+    -- 4. Força a barrinha (Lualine) a usar o tema colorido e sólido do Catppuccin
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {"catppuccin/nvim"},
