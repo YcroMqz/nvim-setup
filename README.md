@@ -46,15 +46,23 @@ Este Neovim extrai as cores do seu wallpaper ou de uma imagem à sua escolha e a
 yay -S matugen-bin
 
 mkdir -p ~/.config/matugen/templates
-cp templates/nvim-colors.lua.template ~/.config/matugen/templates/
+cp ~/.config/nvim/lua/templates/nvim-colors.lua.template ~/.config/matugen/templates/
 ```
 
 Registre o template no `~/.config/matugen/config.toml` — só copiar o arquivo pra pasta **não é suficiente**, o Matugen precisa dele declarado aqui:
 
+```bash
+nvim ~/.config/matugen/config.toml
+```
+
+Em seguida, cole o seguinte conteúdo no arquivo:
+
 ```toml
-[templates.nvim]
-input_path = '~/.config/matugen/templates/nvim-colors.lua.template'
-output_path = '~/.config/nvim/matugen_colors.lua'
+[config]
+
+[templates.neovim]
+input_path = "~/.config/matugen/templates/nvim-colors.lua.template"
+output_path = "~/.config/nvim/matugen_colors.lua"
 ```
 > ⚠️ O `output_path` precisa apontar pra dentro da sua config do Neovim — é esse caminho que o `design.lua` lê via `stdpath("config")`.
 
