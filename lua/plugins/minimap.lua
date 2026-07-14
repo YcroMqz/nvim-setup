@@ -1,6 +1,7 @@
 return {
     "nvim-mini/mini.map",
     version = false,
+    lazy = false, -- A CHAVE AQUI: Proíbe o LazyVim de fazer o plugin dormir
     keys = {
         { "<leader>mo", "<cmd>lua require('mini.map').open()<cr>", desc = "Abrir Minimap" },
         { "<leader>mc", "<cmd>lua require('mini.map').close()<cr>", desc = "Fechar Minimap" },
@@ -32,5 +33,10 @@ return {
         vim.api.nvim_set_hl(0, "MiniMapNormal", { bg = "NONE", ctermbg = "NONE" })
         vim.api.nvim_set_hl(0, "MiniMapSymbolView", { fg = "#ffffff", bg = "NONE" }) -- Cor da trilha (Mauve/Roxo)
         vim.api.nvim_set_hl(0, "MiniMapSymbolLine", { fg = "#89b4fa", bg = "NONE" }) -- Cor do ponteiro atual (Blue/Azul)
+
+        -- Espera a interface do Neovim terminar de ser desenhada e então abre o mapa
+        vim.schedule(function()
+            map.open()
+        end)
     end,
 }

@@ -17,8 +17,10 @@ vim.keymap.set("n", "<F5>", function()
         cmd = string.format("python3 '%s'", file)
     elseif ft == "go" then
         cmd = string.format("go run '%s'", file)
+    elseif ft == "lua" then
+        cmd = string.format("lua '%s'", file)
     else
-        -- Aviso amigável caso você aperte F5 numa linguagem que não configuramos
+        -- Aviso caso aperte F5 numa linguagem que não configuramos
         vim.notify("Linguagem [" .. ft .. "] não configurada para o F5 rápido!", vim.log.levels.WARN)
         return
     end
